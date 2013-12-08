@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="todo_fragment">事项</string>
     <string name="bug_fragment">Bug</string>
-    <string name="document_fragment">document_fragment</string>
+    <string name="document_fragment">文档</string>
     <string name="member_fragment">成员</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
@@ -19,5 +19,14 @@
     <string name="bug">BUG</string>
     <string name="document">文档</string>
     <string name="member">成员</string>
+    
+    
+    <string name="addItemHint">New To Do Item</string>
+    <string name="addItemContentDescription">New To Do Item</string>
+    
+    <string name="cardinal_north">N</string>
+    <string name="cardinal_west">W</string>
+    <string name="cardinal_south">S</string>
+    <string name="cardinal_east">E</string>
 
 </resources>

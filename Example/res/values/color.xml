@@ -5,5 +5,13 @@
     <color name="white">#fff</color>
     <color name="lightblue">#31B5D5</color>
     <color name="blue">#33B5E5</color>
+    <color name="notepad_paper">#EEF8E0A0</color>
+    <color name="notepad_lines">#FF0000FF</color>
+    <color name="notepad_margin">#90FF0000</color>
+    <color name="notepad_text">#AA0000FF</color>
+    
+    <color name="background_color">#F555</color>
+    <color name="marker_color">#AFFF</color>
+    <color name="text_color">#AFFF</color>
 
 </resources>
