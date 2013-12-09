@@ -1,7 +1,6 @@
 package org.instorm.example.todolist.view;
 
 import org.instorm.example.R;
-import org.instorm.example.todolist.OnNewItemListener;
 
 import android.app.Activity;
 import android.os.Bundle;

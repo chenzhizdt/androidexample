@@ -3,6 +3,7 @@ package org.instorm.example.todolist;
 import org.instorm.example.R;
 import org.instorm.example.todolist.view.ItemsFragment;
 import org.instorm.example.todolist.view.NewItemFragment;
+import org.instorm.example.todolist.view.OnNewItemListener;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
