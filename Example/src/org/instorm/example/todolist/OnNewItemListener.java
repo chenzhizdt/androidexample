@@ -1,4 +1,4 @@
-package org.instorm.example;
+package org.instorm.example.todolist;
 
 public interface OnNewItemListener {
 	public void onNewItemAdded(String newItem);

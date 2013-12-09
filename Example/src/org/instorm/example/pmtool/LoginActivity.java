@@ -1,4 +1,9 @@
-package org.instorm.example;
+package org.instorm.example.pmtool;
+
+import org.instorm.example.R;
+import org.instorm.example.R.id;
+import org.instorm.example.R.layout;
+import org.instorm.example.R.string;
 
 import android.app.Activity;
 import android.app.AlertDialog;

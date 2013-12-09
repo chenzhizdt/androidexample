@@ -1,4 +1,4 @@
-package org.instorm.test.view;
+package org.instorm.example.todolist.view;
 
 import org.instorm.example.R;
 

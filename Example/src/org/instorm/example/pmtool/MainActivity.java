@@ -1,13 +1,15 @@
-package org.instorm.example;
+package org.instorm.example.pmtool;
 
 import java.util.ArrayList;
 
 import org.instorm.example.R;
-import org.instorm.view.BugFragment;
-import org.instorm.view.DocumentFragment;
-import org.instorm.view.MainFragmentPagerAdapter;
-import org.instorm.view.MemberFragment;
-import org.instorm.view.TodoFragment;
+import org.instorm.example.R.id;
+import org.instorm.example.R.layout;
+import org.instorm.example.pmtool.view.BugFragment;
+import org.instorm.example.pmtool.view.DocumentFragment;
+import org.instorm.example.pmtool.view.MainFragmentPagerAdapter;
+import org.instorm.example.pmtool.view.MemberFragment;
+import org.instorm.example.pmtool.view.TodoFragment;
 
 import android.content.Intent;
 import android.os.Bundle;

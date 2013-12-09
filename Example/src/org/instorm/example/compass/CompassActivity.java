@@ -9,6 +9,6 @@ public class CompassActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.comprass_main);
+		setContentView(R.layout.activity_comprass);
 	}
 }

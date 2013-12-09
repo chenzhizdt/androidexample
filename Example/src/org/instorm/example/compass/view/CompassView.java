@@ -1,4 +1,4 @@
-package org.instorm.example.compass;
+package org.instorm.example.compass.view;
 
 import org.instorm.example.R;
 

@@ -1,4 +1,4 @@
-package org.instorm.view;
+package org.instorm.example.pmtool.view;
 
 import java.util.ArrayList;
 

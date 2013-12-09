@@ -1,7 +1,8 @@
-package org.instorm.example;
+package org.instorm.example.todolist;
 
-import org.instorm.test.view.ItemsFragment;
-import org.instorm.test.view.NewItemFragment;
+import org.instorm.example.R;
+import org.instorm.example.todolist.view.ItemsFragment;
+import org.instorm.example.todolist.view.NewItemFragment;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -14,7 +15,7 @@ public class ToDoListActivity extends FragmentActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.activity_todolist);
 		itemsFragment = (ItemsFragment) getSupportFragmentManager().findFragmentById(R.id.itemsFragment);
 		newItemFragment = (NewItemFragment) getSupportFragmentManager().findFragmentById(R.id.newItemFragment);
 		newItemFragment.setOnNewItemListener(new OnNewItemListener() {

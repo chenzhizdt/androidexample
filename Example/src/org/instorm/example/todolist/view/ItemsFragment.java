@@ -1,4 +1,4 @@
-package org.instorm.test.view;
+package org.instorm.example.todolist.view;
 
 import java.util.ArrayList;
 
@@ -10,13 +10,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class ItemsFragment extends Fragment {
 	
-	private ArrayList<String> todoItems;
-	private ArrayAdapter<String> adapter;
+	private ArrayList<ToDoItem> todoItems;
+	private ToDoListAdapter adapter;
 	private ListView myListView;
 	private Activity activity;
 	
@@ -29,16 +28,16 @@ public class ItemsFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.items_fragment, container, false);
+		View view = inflater.inflate(R.layout.fragment_items, container, false);
 		myListView = (ListView) view.findViewById(R.id.myListView);
-		todoItems = new ArrayList<String>();
-		adapter = new ArrayAdapter<String>(activity, R.layout.todolist_item, todoItems);
+		todoItems = new ArrayList<ToDoItem>();
+		adapter = new ToDoListAdapter(activity, R.layout.list_item_todolist, todoItems);
 		myListView.setAdapter(adapter);
 		return view;
 	}
 	
 	public void addNewItem(String newItem){
-		todoItems.add(0, newItem);
+		todoItems.add(0, new ToDoItem(newItem));
 		adapter.notifyDataSetChanged();
 	}
 }
