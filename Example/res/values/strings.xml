@@ -28,5 +28,9 @@
     <string name="cardinal_west">W</string>
     <string name="cardinal_south">S</string>
     <string name="cardinal_east">E</string>
+    <string name="pmtool">Pmtool</string>
+    <string name="compass">Compass</string>
+    <string name="todolist">TodoList</string>
+    <string name="contactpicker">ContactPicker</string>
 
 </resources>

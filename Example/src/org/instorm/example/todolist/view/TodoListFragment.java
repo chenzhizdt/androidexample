@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-public class ItemsFragment extends Fragment {
+public class TodoListFragment extends Fragment {
 	
-	private ArrayList<ToDoItem> todoItems;
-	private ToDoListAdapter adapter;
+	private ArrayList<TodoItem> todoItems;
+	private TodoListAdapter adapter;
 	private ListView myListView;
 	private Activity activity;
 	
@@ -28,16 +28,16 @@ public class ItemsFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_items, container, false);
+		View view = inflater.inflate(R.layout.fragment_todolist, container, false);
 		myListView = (ListView) view.findViewById(R.id.myListView);
-		todoItems = new ArrayList<ToDoItem>();
-		adapter = new ToDoListAdapter(activity, R.layout.list_item_todolist, todoItems);
+		todoItems = new ArrayList<TodoItem>();
+		adapter = new TodoListAdapter(activity, R.layout.list_item_todolist, todoItems);
 		myListView.setAdapter(adapter);
 		return view;
 	}
 	
 	public void addNewItem(String newItem){
-		todoItems.add(0, new ToDoItem(newItem));
+		todoItems.add(0, new TodoItem(newItem));
 		adapter.notifyDataSetChanged();
 	}
 }

@@ -114,8 +114,6 @@ public class CompassView extends View {
 					int arrowY = 2*textHeight;
 					canvas.drawLine(px, arrowY, px-5, 3*textHeight, markerPaint);
 					canvas.drawLine(px, arrowY, px+5, 3*textHeight, markerPaint);
-					canvas.drawLine(px-5, 3*textHeight, px+5, 3*textHeight, markerPaint);
-					canvas.drawLine(px, py - textHeight, px, 3*textHeight, markerPaint);
 					break;
 				}
 				case(6): dirString = eastString; break;

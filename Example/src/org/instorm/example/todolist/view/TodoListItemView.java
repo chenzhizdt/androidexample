@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
 
-public class ToDoListItemView extends TextView {
+public class TodoListItemView extends TextView {
 	
 	private  static final String TAG = "ToDoListItemView";
 	
@@ -19,17 +19,17 @@ public class ToDoListItemView extends TextView {
 	private int paperColor;
 	private float margin;
 
-	public ToDoListItemView(Context context) {
+	public TodoListItemView(Context context) {
 		super(context);
 		init();
 	}
 	
-	public ToDoListItemView(Context context, AttributeSet attrs) {
+	public TodoListItemView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		init();
 	}
 	
-	public ToDoListItemView(Context context, AttributeSet attrs, int ds) {
+	public TodoListItemView(Context context, AttributeSet attrs, int ds) {
 		super(context, attrs, ds);
 		init();
 	}

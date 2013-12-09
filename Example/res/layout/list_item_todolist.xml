@@ -14,7 +14,7 @@
         android:scrollbars="vertical"
         android:fadingEdge="vertical"
         />
-    <org.instorm.example.todolist.view.ToDoListItemView 
+    <org.instorm.example.todolist.view.TodoListItemView 
     android:id="@+id/row"
     android:layout_width="match_parent"
     android:layout_height="match_parent"

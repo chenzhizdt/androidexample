@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_pmtool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pmtool"
+        android:onClick="openPmtool" />
+
+    <Button
+        android:id="@+id/btn_compass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/compass"
+        android:onClick="openCompass" />
+
+    <Button
+        android:id="@+id/btn_contactpicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/contactpicker"
+        android:onClick="openContactPicker" />
+
+    <Button
+        android:id="@+id/btn_todolist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/todolist" 
+        android:onClick="openTodoList" />
+
+</LinearLayout>

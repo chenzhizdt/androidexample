@@ -3,8 +3,6 @@ package org.instorm.example.pmtool;
 import java.util.ArrayList;
 
 import org.instorm.example.R;
-import org.instorm.example.R.id;
-import org.instorm.example.R.layout;
 import org.instorm.example.pmtool.view.BugFragment;
 import org.instorm.example.pmtool.view.DocumentFragment;
 import org.instorm.example.pmtool.view.MainFragmentPagerAdapter;
@@ -22,7 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity {
+public class PmtoolMainActivity extends FragmentActivity {
 	
 	private ViewPager mViewPager;
 	private TextView todo;
@@ -35,7 +33,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pm_main);
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
         String password = intent.getStringExtra("password");

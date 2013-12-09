@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <fragment android:name="org.instorm.example.todolist.view.NewItemFragment"
+    <fragment android:name="org.instorm.example.todolist.view.AddTodoFragment"
         android:id="@+id/newItemFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </fragment>
 
-    <fragment android:name="org.instorm.example.todolist.view.ItemsFragment"
+    <fragment android:name="org.instorm.example.todolist.view.TodoListFragment"
         android:id="@+id/itemsFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -3,16 +3,16 @@ package org.instorm.example.todolist.view;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ToDoItem {
+public class TodoItem {
 	
 	String task;
 	Date created;
 	
-	public ToDoItem(String task){
+	public TodoItem(String task){
 		this(task, new Date(java.lang.System.currentTimeMillis()));
 	}
 	
-	public ToDoItem(String task, Date created){
+	public TodoItem(String task, Date created){
 		this.task = task;
 		this.created = created;
 	}

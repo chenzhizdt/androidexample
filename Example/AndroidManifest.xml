@@ -14,18 +14,18 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" android:theme="@android:style/Theme.Light.NoTitleBar">
         <activity
-            android:name="org.instorm.example.contactpicker.ContactPickerActivity"
+            android:name="AppListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="org.instorm.example.pmtool.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
+        <activity android:name="org.instorm.example.compass.CompassActivity"/>
+        <activity android:name="org.instorm.example.contactpicker.ContactPickerActivity"/>
+        <activity android:name="org.instorm.example.todolist.TodoListActivity"/>
+        <activity android:name="org.instorm.example.pmtool.PmtoolLoginActivity"/>
+        <activity android:name="org.instorm.example.pmtool.PmtoolMainActivity"/>
     </application>
 
 </manifest>

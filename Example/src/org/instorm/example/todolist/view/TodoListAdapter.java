@@ -13,11 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ToDoListAdapter extends ArrayAdapter<ToDoItem> {
+public class TodoListAdapter extends ArrayAdapter<TodoItem> {
 	
 	private int resource;
 	
-	public ToDoListAdapter(Context context, int resource, List<ToDoItem> objects) {
+	public TodoListAdapter(Context context, int resource, List<TodoItem> objects) {
 		super(context, resource, objects);
 		this.resource = resource;
 	}
@@ -27,7 +27,7 @@ public class ToDoListAdapter extends ArrayAdapter<ToDoItem> {
 		// TODO Auto-generated method stub
 		LinearLayout todoView;
 		
-		ToDoItem item = getItem(position);
+		TodoItem item = getItem(position);
 		
 		String taskString = item.getTask();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
