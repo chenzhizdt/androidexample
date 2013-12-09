@@ -1,4 +1,4 @@
-package org.instorm.example.todolist.view;
+package org.instorm.example.todolist.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

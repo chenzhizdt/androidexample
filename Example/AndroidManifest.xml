@@ -8,6 +8,7 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -26,6 +27,7 @@
         <activity android:name="org.instorm.example.todolist.TodoListActivity"/>
         <activity android:name="org.instorm.example.pmtool.PmtoolLoginActivity"/>
         <activity android:name="org.instorm.example.pmtool.PmtoolMainActivity"/>
+        <activity android:name="org.instorm.example.earchquake.EarthquakeActivity"/>
     </application>
 
 </manifest>

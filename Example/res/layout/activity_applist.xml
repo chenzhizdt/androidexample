@@ -31,5 +31,12 @@
         android:layout_height="wrap_content"
         android:text="@string/todolist" 
         android:onClick="openTodoList" />
+    
+    <Button
+        android:id="@+id/btn_earthquake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/earthquake" 
+        android:onClick="openEarthquake" />
 
 </LinearLayout>

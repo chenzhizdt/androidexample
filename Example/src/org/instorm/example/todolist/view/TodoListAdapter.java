@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.instorm.example.R;
+import org.instorm.example.todolist.model.TodoItem;
 
 import android.content.Context;
 import android.view.LayoutInflater;

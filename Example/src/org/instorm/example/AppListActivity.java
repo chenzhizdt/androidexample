@@ -2,6 +2,7 @@ package org.instorm.example;
 
 import org.instorm.example.compass.CompassActivity;
 import org.instorm.example.contactpicker.ContactPickerActivity;
+import org.instorm.example.earchquake.EarthquakeActivity;
 import org.instorm.example.pmtool.PmtoolLoginActivity;
 import org.instorm.example.todolist.TodoListActivity;
 
@@ -35,6 +36,11 @@ public class AppListActivity extends Activity {
 	
 	public void openTodoList(View v){
 		Intent intent = new Intent(this, TodoListActivity.class);
+		startActivity(intent);
+	}
+	
+	public void openEarthquake(View v){
+		Intent intent = new Intent(this, EarthquakeActivity.class);
 		startActivity(intent);
 	}
 }

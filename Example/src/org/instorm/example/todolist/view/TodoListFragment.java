@@ -3,6 +3,7 @@ package org.instorm.example.todolist.view;
 import java.util.ArrayList;
 
 import org.instorm.example.R;
+import org.instorm.example.todolist.model.TodoItem;
 
 import android.app.Activity;
 import android.os.Bundle;
