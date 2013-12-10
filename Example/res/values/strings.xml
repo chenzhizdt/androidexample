@@ -37,5 +37,12 @@
     <string name="connection_wrong">connection wrong</string>
     <string name="parse_wrong">parse wrong</string>
     <string name="earthquake">Earthquake</string>
+    <string name="download">Download</string>
+    <string name="begin_download">开始下载</string>
+    <string name="menu_update">Refresh Earthquakes</string>
+    <string name="auto_update_prompt">Auto Upate?</string>
+    <string name="update_freq_prompt">Update Frequency</string>
+    <string name="min_quake_mag_prompt">Minimum Quake Magnitude</string>
+    <string name="menu_preferences">Preferences</string>
 
 </resources>

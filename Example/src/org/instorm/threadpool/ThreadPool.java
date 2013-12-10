@@ -6,7 +6,7 @@ public class ThreadPool{
 	
 	private LinkedList<Runnable> tasks;
 	private int poolSize;
-	private boolean isClosed = false;
+	private volatile boolean isClosed = false;
 	
 	public int getPoolSize() {
 		return poolSize;
