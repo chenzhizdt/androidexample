@@ -16,6 +16,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.instorm.example.R;
+import org.instorm.example.earchquake.EarthquakeActivity;
 import org.instorm.example.earchquake.model.Quake;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -132,7 +133,10 @@ public class EarthquakeListFragment extends ListFragment {
 	}
 	
 	private void addNewQuake(Quake quake){
-		earthquakes.add(quake);
+		EarthquakeActivity earthquakeActivity = (EarthquakeActivity) getActivity();
+		if(quake.getMagnitude() > earthquakeActivity.minimumMagnitude){
+			earthquakes.add(quake);
+		}
 		arrayAdapter.notifyDataSetChanged();
 	}
 }

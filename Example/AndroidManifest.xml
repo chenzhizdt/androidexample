@@ -28,6 +28,7 @@
         <activity android:name="org.instorm.example.pmtool.PmtoolLoginActivity"/>
         <activity android:name="org.instorm.example.pmtool.PmtoolMainActivity"/>
         <activity android:name="org.instorm.example.earchquake.EarthquakeActivity"/>
+        <activity android:name="org.instorm.example.earchquake.PreferencesActivity"/>
     </application>
 
 </manifest>
