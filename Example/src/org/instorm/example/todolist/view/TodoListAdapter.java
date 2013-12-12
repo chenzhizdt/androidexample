@@ -2,6 +2,7 @@ package org.instorm.example.todolist.view;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 import org.instorm.example.R;
 import org.instorm.example.todolist.model.TodoItem;
@@ -25,13 +26,12 @@ public class TodoListAdapter extends ArrayAdapter<TodoItem> {
 	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
 		LinearLayout todoView;
 		
 		TodoItem item = getItem(position);
 		
 		String taskString = item.getTask();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.CHINESE);
 		String dateString = sdf.format(item.getCreated());
 		
 		if(convertView == null){
