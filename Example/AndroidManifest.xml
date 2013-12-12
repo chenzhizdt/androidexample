@@ -32,6 +32,8 @@
         <activity android:name="org.instorm.example.earchquake.FragmentPreferences"/>
         <provider android:name="org.instorm.example.todolist.TodoContentProvider"
             android:authorities="org.instorm.example.todocontentprovider"/>
+        <provider android:name="org.instorm.example.earchquake.EarthquakeProvider"
+            android:authorities="org.instorm.example.earthquakeprovider"/>
     </application>
 
 </manifest>
