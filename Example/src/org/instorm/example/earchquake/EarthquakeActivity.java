@@ -3,6 +3,8 @@ package org.instorm.example.earchquake;
 import org.instorm.example.R;
 import org.instorm.example.earchquake.view.EarthquakeListFragment;
 
+import android.app.SearchManager;
+import android.app.SearchableInfo;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,6 +15,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 
 public class EarthquakeActivity extends FragmentActivity {
 
@@ -28,13 +31,18 @@ public class EarthquakeActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eq_earchquake);
+		updateFromPreferences();
+		
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		SearchableInfo searchableInfo = searchManager.getSearchableInfo(getComponentName());
+		
+		SearchView searchView = (SearchView) findViewById(R.id.searchView);
+		searchView.setSearchableInfo(searchableInfo);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-
-		updateFromPreferences();
 
 		menu.add(0, MENU_PREFERENCES, Menu.NONE, R.string.menu_preferences);
 		// menu.add(1, MENU_UPDATE, Menu.NONE, R.string.menu_update);

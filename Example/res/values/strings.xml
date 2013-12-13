@@ -45,5 +45,6 @@
     <string name="min_quake_mag_prompt">Minimum Quake Magnitude</string>
     <string name="menu_preferences">Preferences</string>
     <string name="search">搜索</string>
+    <string name="search_description">搜索</string>
 
 </resources>

@@ -152,26 +152,41 @@ public class EarthquakeListFragment extends ListFragment implements LoaderCallba
 		}
 	}
 	
-	private void addNewQuake(Quake quake){
-		ContentResolver cr = getActivity().getContentResolver();
-		String w = EarthquakeProvider.KEY_DATE + "=" + quake.getDate().getTime();
-		
-		Cursor query = cr.query(EarthquakeProvider.CONTENT_URI, null, w, null, null);
-		
-		if(query.getCount() == 0){
-			ContentValues values = new ContentValues();
-			
-			values.put(EarthquakeProvider.KEY_DATE, quake.getDate().getTime());
-			values.put(EarthquakeProvider.KEY_DETAILS, quake.getDetails());
-			values.put(EarthquakeProvider.KEY_LINK, quake.getLink());
-			values.put(EarthquakeProvider.KEY_LOCATION_LAT, quake.getLocation().getLatitude());
-			values.put(EarthquakeProvider.KEY_LOCATION_LNG, quake.getLocation().getLongitude());
-			values.put(EarthquakeProvider.KEY_MAGNITUDE, quake.getMagnitude());
-			values.put(EarthquakeProvider.KEY_SUMMARY, quake.toString());
-			
-			cr.insert(EarthquakeProvider.CONTENT_URI, values);
+	private void addNewQuake(Quake quake) {
+		if (getActivity() != null) {
+			if (getActivity().getContentResolver() != null) {
+				ContentResolver cr = getActivity().getContentResolver();
+				String w = EarthquakeProvider.KEY_DATE + "="
+						+ quake.getDate().getTime();
+
+				Cursor query = cr.query(EarthquakeProvider.CONTENT_URI, null,
+						w, null, null);
+
+				if (query.getCount() == 0) {
+					ContentValues values = new ContentValues();
+
+					values.put(EarthquakeProvider.KEY_DATE, quake.getDate()
+							.getTime());
+					values.put(EarthquakeProvider.KEY_DETAILS,
+							quake.getDetails());
+					values.put(EarthquakeProvider.KEY_LINK, quake.getLink());
+					values.put(EarthquakeProvider.KEY_LOCATION_LAT, quake
+							.getLocation().getLatitude());
+					values.put(EarthquakeProvider.KEY_LOCATION_LNG, quake
+							.getLocation().getLongitude());
+					values.put(EarthquakeProvider.KEY_MAGNITUDE,
+							quake.getMagnitude());
+					values.put(EarthquakeProvider.KEY_SUMMARY, quake.toString());
+
+					cr.insert(EarthquakeProvider.CONTENT_URI, values);
+				}
+				query.close();
+			} else {
+				Log.v(TAG, "No ContentResolver");
+			}
+		} else {
+			Log.v(TAG, "No Activity");
 		}
-		query.close();
 	}
 
 	@Override

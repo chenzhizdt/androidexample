@@ -1,5 +1,8 @@
 package org.instorm.example.earchquake;
 
+import java.util.HashMap;
+
+import android.app.SearchManager;
 import android.content.ContentProvider;
 import android.content.ContentUris;
 import android.content.ContentValues;
@@ -30,8 +33,16 @@ public class EarthquakeProvider extends ContentProvider {
 	
 	public static final int QUAKES = 1;
 	public static final int QUAKE_ID = 2;
+	public static final int SEARCH = 3;
 	
-	private EarthquakeDatabaseHelper dbHelper;
+	private static final HashMap<String, String> SEARCH_PROJECTION_MAP;
+	
+	static {
+		SEARCH_PROJECTION_MAP = new HashMap<String, String>();
+		SEARCH_PROJECTION_MAP.put(SearchManager.SUGGEST_COLUMN_TEXT_1, KEY_SUMMARY +
+				" AS " + SearchManager.SUGGEST_COLUMN_TEXT_1);
+		SEARCH_PROJECTION_MAP.put("_id", KEY_ID + " AS " + "_id");
+	}
 	
 	private static final UriMatcher uriMatcher;
 	
@@ -39,7 +50,13 @@ public class EarthquakeProvider extends ContentProvider {
 		uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 		uriMatcher.addURI("org.instorm.example.earthquakeprovider", "earthquakes", QUAKES);
 		uriMatcher.addURI("org.instorm.example.earthquakeprovider", "earthquakes/#", QUAKE_ID);
+		uriMatcher.addURI("org.instorm.example.earthquakeprovider", SearchManager.SUGGEST_URI_PATH_QUERY, SEARCH);
+		uriMatcher.addURI("org.instorm.example.earthquakeprovider", SearchManager.SUGGEST_URI_PATH_QUERY + "/*", SEARCH);
+		uriMatcher.addURI("org.instorm.example.earthquakeprovider", SearchManager.SUGGEST_URI_PATH_SHORTCUT, SEARCH);
+		uriMatcher.addURI("org.instorm.example.earthquakeprovider", SearchManager.SUGGEST_URI_PATH_SHORTCUT + "/*", SEARCH);
 	}
+	
+	private EarthquakeDatabaseHelper dbHelper;
 
 	@Override
 	public int delete(Uri uri, String selection, String[] selectionArgs) {
@@ -69,6 +86,7 @@ public class EarthquakeProvider extends ContentProvider {
 		switch(uriMatcher.match(uri)){
 		case QUAKES: return "vnd.android.cursor.dir/vnd.instorm.earthquake";
 		case QUAKE_ID: return "vnd.android.cursor.item/vnd.instorm.earthquake";
+		case SEARCH: return SearchManager.SUGGEST_MIME_TYPE;
 		default: throw new IllegalArgumentException("Unsupported URI: " + uri);
 		}
 	}
@@ -107,6 +125,9 @@ public class EarthquakeProvider extends ContentProvider {
 		switch(uriMatcher.match(uri)){
 		case QUAKE_ID:
 			qb.appendWhere(KEY_ID + "=" + uri.getPathSegments().get(1));
+		case SEARCH:
+			qb.appendWhere(KEY_SUMMARY + " like \"%" + uri.getPathSegments().get(1) + "%\"");
+			qb.setProjectionMap(SEARCH_PROJECTION_MAP);
 		default: break;
 		}
 		
