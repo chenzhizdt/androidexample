@@ -3,6 +3,7 @@ package org.instorm.example;
 import org.instorm.example.compass.CompassActivity;
 import org.instorm.example.contactpicker.ContactPickerActivity;
 import org.instorm.example.earchquake.EarthquakeActivity;
+import org.instorm.example.lifecycle.LifeCycleActivity;
 import org.instorm.example.pmtool.PmtoolLoginActivity;
 import org.instorm.example.todolist.TodoListActivity;
 
@@ -62,5 +63,10 @@ public class AppListActivity extends Activity {
 		dialog.setMessage(getString(R.string.begin_download) + ": " + id);
 		dialog.setNegativeButton(R.string.confirm, null);
 		dialog.show();
+	}
+	
+	public void openLifeCycle(View v){
+		Intent intent = new Intent(this, LifeCycleActivity.class);
+		startActivity(intent);
 	}
 }

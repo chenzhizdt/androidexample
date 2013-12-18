@@ -50,6 +50,7 @@
 				android:resource="@xml/searchable"
 			/>
         </activity>
+        <activity android:name="org.instorm.example.lifecycle.LifeCycleActivity"/>
     </application>
 
 </manifest>

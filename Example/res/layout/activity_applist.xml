@@ -45,5 +45,12 @@
         android:layout_height="wrap_content"
         android:text="@string/download" 
         android:onClick="openDownload" />
+    
+    <Button
+        android:id="@+id/btn_lifecycle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lifecycle_test" 
+        android:onClick="openLifeCycle" />
 
 </LinearLayout>
