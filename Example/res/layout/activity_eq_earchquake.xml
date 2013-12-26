@@ -5,12 +5,17 @@
     android:orientation="vertical" >
     <SearchView
         android:id="@+id/searchView"
+        android:iconifiedByDefault="false"
         android:background="#FFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
     </SearchView>
     <fragment android:name="org.instorm.example.earchquake.view.EarthquakeListFragment"
         android:id="@+id/fm_earthquakelist"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent" />
+    <fragment android:name="org.instorm.example.earchquake.view.EarthquakeMapFragment"
+        android:id="@+id/fm_eq_map"
         android:layout_width="match_parent"
     	android:layout_height="match_parent" />
 </LinearLayout>

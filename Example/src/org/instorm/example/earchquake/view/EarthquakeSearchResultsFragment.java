@@ -3,18 +3,18 @@ package org.instorm.example.earchquake.view;
 import org.instorm.example.R;
 import org.instorm.example.earchquake.EarthquakeProvider;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.LoaderManager.LoaderCallbacks;
+import android.content.CursorLoader;
+import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.CursorLoader;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 public class EarthquakeSearchResultsFragment extends Fragment implements
 		LoaderCallbacks<Cursor> {
@@ -23,7 +23,7 @@ public class EarthquakeSearchResultsFragment extends Fragment implements
 	
 	private ListView lvSearchResults;
 	private SimpleCursorAdapter adapter;
-	private FragmentActivity fa;
+	private Activity fa;
 	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -41,8 +41,8 @@ public class EarthquakeSearchResultsFragment extends Fragment implements
 				new String[] { EarthquakeProvider.KEY_SUMMARY },
 				new int[] { android.R.id.text1 }, 0);
 		lvSearchResults.setAdapter(adapter);
-		fa = (FragmentActivity) getActivity();
-		fa.getSupportLoaderManager().initLoader(0, null, this);
+		fa = getActivity();
+		fa.getLoaderManager().initLoader(0, null, this);
 		return view;
 	}
 	
@@ -76,6 +76,6 @@ public class EarthquakeSearchResultsFragment extends Fragment implements
 	}
 	
 	public void restartLoader(Bundle args){
-		fa.getSupportLoaderManager().restartLoader(0, args, this);
+		fa.getLoaderManager().restartLoader(0, args, this);
 	}
 }

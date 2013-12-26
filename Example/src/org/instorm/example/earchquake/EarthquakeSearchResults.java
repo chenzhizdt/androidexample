@@ -16,7 +16,7 @@ public class EarthquakeSearchResults extends FragmentActivity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_eq_search_results);
-		esrf = (EarthquakeSearchResultsFragment) getSupportFragmentManager().findFragmentById(R.id.searchResultsFragment);
+		esrf = (EarthquakeSearchResultsFragment) getFragmentManager().findFragmentById(R.id.searchResultsFragment);
 		parseIntent(getIntent());
 	}
 	
