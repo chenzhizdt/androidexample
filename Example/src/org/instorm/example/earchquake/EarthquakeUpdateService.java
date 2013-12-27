@@ -24,6 +24,8 @@ import org.xml.sax.SAXException;
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.ContentValues;
@@ -32,19 +34,25 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.location.Location;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
 public class EarthquakeUpdateService extends IntentService {
+	
+	public static final int NOTIFICATION_ID = 1;
 
 	private static final String TAG = "EarthquakeUpdateService";
 	
 	private AlarmManager alarmManager;
 	private PendingIntent alarmIntent;
+	private Notification.Builder earthquakeNotificationBuilder;
 	
-	public EarthquakeUpdateService(String name) {
+	
+	public EarthquakeUpdateService() {
 		super(TAG);
 	}
 	
@@ -57,6 +65,9 @@ public class EarthquakeUpdateService extends IntentService {
 		String ALARM_ACTION = EarthquakeAlarmReceiver.ACTION_REFRESH_EARTHQUAKE_ALARM;
 		Intent intentToFire = new Intent(ALARM_ACTION);
 		alarmIntent = PendingIntent.getBroadcast(this, 0, intentToFire, 0);
+		
+		earthquakeNotificationBuilder = new Notification.Builder(this);
+		earthquakeNotificationBuilder.setAutoCancel(true).setTicker("Earthquake detected").setSmallIcon(android.R.drawable.ic_search_category_default);
 	};
 
 	@Override
@@ -134,6 +145,22 @@ public class EarthquakeUpdateService extends IntentService {
 		} finally {
 		}
 	}
+	
+	@SuppressWarnings("deprecation")
+	private void broadcastNotification(Quake quake) {
+		Intent startActivityIntent = new Intent(this, EarthquakeActivity.class);
+		PendingIntent launchIntent = PendingIntent.getActivity(this, 0, startActivityIntent, 0);
+		
+		earthquakeNotificationBuilder.setContentIntent(launchIntent).setWhen(quake.getDate().getTime()).setContentTitle("M: " + quake.getMagnitude()).setContentText(quake.getDetails());
+		
+		NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		if(quake.getMagnitude() > 6){
+			Uri ringURI = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+			earthquakeNotificationBuilder.setSound(ringURI);
+		}
+		
+		notificationManager.notify(NOTIFICATION_ID, earthquakeNotificationBuilder.getNotification());
+	}
 
 	private void addNewQuake(Quake quake) {
 		ContentResolver cr = getContentResolver();
@@ -158,6 +185,7 @@ public class EarthquakeUpdateService extends IntentService {
 			values.put(EarthquakeProvider.KEY_SUMMARY, quake.toString());
 
 			cr.insert(EarthquakeProvider.CONTENT_URI, values);
+			broadcastNotification(quake);
 		}
 		query.close();
 	}

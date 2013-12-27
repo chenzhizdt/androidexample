@@ -1,6 +1,7 @@
 package org.instorm.example.earchquake;
 
 import java.util.HashMap;
+import java.util.List;
 
 import android.app.SearchManager;
 import android.content.ContentProvider;
@@ -125,9 +126,14 @@ public class EarthquakeProvider extends ContentProvider {
 		switch(uriMatcher.match(uri)){
 		case QUAKE_ID:
 			qb.appendWhere(KEY_ID + "=" + uri.getPathSegments().get(1));
+			break;
 		case SEARCH:
-			qb.appendWhere(KEY_SUMMARY + " like \"%" + uri.getPathSegments().get(1) + "%\"");
+			List<String> params = uri.getPathSegments();
+			if(params.size() > 1){
+				qb.appendWhere(KEY_SUMMARY + " like \"%" + params.get(1) + "%\"");
+			}
 			qb.setProjectionMap(SEARCH_PROJECTION_MAP);
+			break;
 		default: break;
 		}
 		
