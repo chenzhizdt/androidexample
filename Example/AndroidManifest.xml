@@ -53,6 +53,7 @@
 			/>
         </activity>
         <activity android:name="org.instorm.example.lifecycle.LifeCycleActivity"/>
+        <activity android:name="org.instorm.example.touchevent.TouchActivity"/>
         <service android:enabled="true" android:name="org.instorm.example.earchquake.EarthquakeUpdateService"/>
         <receiver android:name="org.instorm.example.earchquake.EarthquakeAlarmReceiver">
             <intent-filter>

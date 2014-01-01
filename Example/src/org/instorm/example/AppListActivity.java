@@ -6,6 +6,7 @@ import org.instorm.example.earchquake.EarthquakeActivity;
 import org.instorm.example.lifecycle.LifeCycleActivity;
 import org.instorm.example.pmtool.PmtoolLoginActivity;
 import org.instorm.example.todolist.TodoListActivity;
+import org.instorm.example.touchevent.TouchActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -67,6 +68,11 @@ public class AppListActivity extends Activity {
 	
 	public void openLifeCycle(View v){
 		Intent intent = new Intent(this, LifeCycleActivity.class);
+		startActivity(intent);
+	}
+	
+	public void openTouchEvent(View v){
+		Intent intent = new Intent(this, TouchActivity.class);
 		startActivity(intent);
 	}
 }

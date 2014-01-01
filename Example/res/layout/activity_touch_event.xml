@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.instorm.example.touchevent.TouchLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <ListView 
+        android:id="@+id/lv_log"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </ListView>
+    <org.instorm.example.touchevent.TouchTextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/app_name"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="40sp"/>
+</org.instorm.example.touchevent.TouchLinearLayout>
