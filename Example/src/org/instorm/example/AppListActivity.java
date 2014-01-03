@@ -6,6 +6,7 @@ import org.instorm.example.earchquake.EarthquakeActivity;
 import org.instorm.example.lifecycle.LifeCycleActivity;
 import org.instorm.example.pmtool.PmtoolLoginActivity;
 import org.instorm.example.slide.SlideListActivity;
+import org.instorm.example.slide.SlideMenuActivity;
 import org.instorm.example.todolist.TodoListActivity;
 import org.instorm.example.touchevent.TouchActivity;
 
@@ -79,6 +80,11 @@ public class AppListActivity extends Activity {
 	
 	public void openSlideList(View v){
 		Intent intent = new Intent(this, SlideListActivity.class);
+		startActivity(intent);
+	}
+	
+	public void openSlideMenu(View v){
+		Intent intent = new Intent(this, SlideMenuActivity.class);
 		startActivity(intent);
 	}
 }
