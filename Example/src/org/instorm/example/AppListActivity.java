@@ -5,6 +5,7 @@ import org.instorm.example.contactpicker.ContactPickerActivity;
 import org.instorm.example.earchquake.EarthquakeActivity;
 import org.instorm.example.lifecycle.LifeCycleActivity;
 import org.instorm.example.pmtool.PmtoolLoginActivity;
+import org.instorm.example.slide.SlideListActivity;
 import org.instorm.example.todolist.TodoListActivity;
 import org.instorm.example.touchevent.TouchActivity;
 
@@ -73,6 +74,11 @@ public class AppListActivity extends Activity {
 	
 	public void openTouchEvent(View v){
 		Intent intent = new Intent(this, TouchActivity.class);
+		startActivity(intent);
+	}
+	
+	public void openSlideList(View v){
+		Intent intent = new Intent(this, SlideListActivity.class);
 		startActivity(intent);
 	}
 }
