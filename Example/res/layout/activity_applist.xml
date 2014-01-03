@@ -64,14 +64,14 @@
         android:id="@+id/btn_slide_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/touch_event_test" 
+        android:text="@string/slide_delete_test" 
         android:onClick="openSlideList" />
     
     <Button
         android:id="@+id/btn_slide_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/touch_event_test" 
+        android:text="@string/slide_menu_test" 
         android:onClick="openSlideMenu" />
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package org.instorm.example.slide;
 import java.util.ArrayList;
 
 import org.instorm.example.R;
+import org.instorm.utils.Utils;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -42,15 +43,17 @@ public class SlideMenuFrameLayout extends FrameLayout{
 	/**
 	 * 菜单
 	 */
-	private ListView mMenu;
+	private ListView mMenuContainer;
 	/**
 	 * 菜单项
 	 */
-	private ArrayList<String> menus;
+	private ArrayList<String> mMenus;
 	/**
 	 * 菜单项适配器
 	 */
-	private ArrayAdapter<String> adapter;
+	private ArrayAdapter<String> mAdapter;
+	
+	private Context mContext;
 	
 	public SlideMenuFrameLayout(Context context) {
 		this(context, null);
@@ -60,19 +63,27 @@ public class SlideMenuFrameLayout extends FrameLayout{
 		this(context, attrs, 0);
 	}
 
+	@SuppressWarnings("deprecation")
 	public SlideMenuFrameLayout(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		// TODO: BUG无法获取到子控件
-		mScrollView = (LinearLayout)((SlideMenuActivity)context).findViewById(R.id.ll_move_view);
-		mMenu = (ListView) ((SlideMenuActivity)context).findViewById(R.id.lv_slide_menu);
 		mScroller = new Scroller(context);
 		mScreenWidth = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth();
-		menus = new ArrayList<String>();
-		for(int i = 0; i < 20; i++){
-			menus.add("Menu " + (i + 1));
+		mContext = context;
+	}
+	
+	public void setMenus(ArrayList<String> menus){
+		boolean flag = mMenus == null ? true : false;
+		this.mMenus = menus;
+		if(flag){
+			initMenuContainer();
 		}
-		adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, menus);
-		mMenu.setAdapter(adapter);
+	}
+	
+	private void initMenuContainer(){
+		mScrollView = (LinearLayout)findViewById(R.id.ll_move_view);
+		mMenuContainer = (ListView)findViewById(R.id.lv_slide_menu);
+		mAdapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_list_item_1, mMenus);
+		mMenuContainer.setAdapter(mAdapter);
 	}
 	
 	@Override
@@ -94,7 +105,7 @@ public class SlideMenuFrameLayout extends FrameLayout{
 	public void openMenu(MoveDirection openDirection){
 		if(mState == MenuState.CLOSED){
 			mState = MenuState.OPENING;
-			int scrollX = mScreenWidth - mEdge;
+			int scrollX = mScreenWidth - Utils.dip2px(mContext, mEdge);
 			if(openDirection == MoveDirection.RIGHT){
 				scrollX = -scrollX;
 			}
@@ -106,7 +117,7 @@ public class SlideMenuFrameLayout extends FrameLayout{
 	public void closeMenu(){
 		if(mState == MenuState.OPENED){
 			mState = MenuState.CLOSING;
-			mScroller.startScroll(mScrollView.getScrollX(), 0, 0, 0, mTime);
+			mScroller.startScroll(mScrollView.getScrollX(), 0, -mScrollView.getScrollX(), 0, mTime);
 			postInvalidate();
 		}
 	}

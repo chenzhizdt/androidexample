@@ -48,4 +48,6 @@
     <string name="search_description">搜索</string>
     <string name="lifecycle_test">生命周期测试</string>
 	<string name="touch_event_test">触控事件测试</string>
+	<string name="slide_delete_test">滑动删除测试</string>
+	<string name="slide_menu_test">侧滑菜单测试</string>
 </resources>
